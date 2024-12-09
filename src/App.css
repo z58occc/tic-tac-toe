@@ -1,38 +1,288 @@
-.App {
+.text-box {
+  width: 100%;
+  height: 117px;
+  /* UI Properties */
   text-align: center;
+  font: italic normal bold 100px/100px Roboto Condensed;
+  letter-spacing: 0px;
+  color: #FFFFFF;
+  margin-top: 30.5px;
+
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.left-border {
+  width: 116px;
+  height: 16px;
+  background: #ED494C;
+  transform: rotate(45deg);
+  position: absolute;
+  left: calc(50% - 58px);
+  top: 50%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+
+
+.right-border {
+  width: 116px;
+  height: 16px;
+  background: #ED494C;
+  transform: rotate(-45deg);
+  position: absolute;
+  left: calc(50% - 58px);
+  top: 50%;
+}
+
+.left-border-white {
+  width: 80%;
+  height: 16px;
+  background: white;
+  transform: rotate(45deg);
+  position: absolute;
+  left: calc(50% - 58px);
+  top: 50%;
+}
+
+.right-border-white {
+  width: 80%;
+  height: 16px;
+  background: white;
+  transform: rotate(-45deg);
+  position: absolute;
+  left: calc(50% - 58px);
+  top: 50%;
+}
+
+.inside-right-border {
+  width: 75%;
+  height: 12px;
+  background-color: black;
+  transform: rotate(-45deg);
+  position: absolute;
+  left: calc(50% - 55px);
+  top: 52%;
+
+}
+
+.inside-left-border {
+  width: 75%;
+  height: 12px;
+  background-color: black;
+  transform: rotate(45deg);
+  position: absolute;
+  left: calc(50% - 55px);
+  top: 51%;
+}
+
+.center {
+  background-color: black;
+  width: 8px;
+  height: 8px;
+}
+
+.start-btn {
+  width: 540px;
+  height: 89px;
+  /* UI Properties */
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  border-radius: 8px;
+  text-align: center;
+  font: normal normal bold 48px/48px Roboto Condensed;
+  letter-spacing: 0px;
+  color: #FF6D70;
+  margin-top: 24px;
+}
+
+.start {
+  height: 540px;
+  max-width: 540px;
+  margin-top: 74px
+}
+
+@media screen and (max-width: 414px) {
+
+  .start,
+  .start-btn {
+    max-width: 414px;
   }
+
+
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.x-box {
+  width: 64px;
+  height: 64px;
+  /* UI Properties */
+  background: black 0% 0% no-repeat padding-box;
+  border: 4px solid #000000;
+  border-radius: 8px 0px 0px 8px;
+  /* border-right: none; */
 }
 
-.App-link {
-  color: #61dafb;
+.point-bar {
+  width: 171px;
+  height: 64px;
+  /* UI Properties */
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  border: 4px solid #000000;
+  border-right: none;
+  border-left: none;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.point-box {
+  width: 48px;
+  height: 57px;
+  /* UI Properties */
+  text-align: center;
+  font: normal normal bold 48px/57px Roboto Condensed;
+  letter-spacing: 0px;
+  color: #000000;
+}
+
+.black-box {
+  width: 70px;
+  height: 71px;
+  /* UI Properties */
+  background: #000000 0% 0% no-repeat padding-box;
+  border-radius: 8px 8px 0px 0px;
+  text-align: center;
+  font: normal normal bold 20px/24px Roboto Condensed;
+  letter-spacing: 0px;
+  color: #FFFFFF;
+}
+
+.o-box {
+  width: 64px;
+  height: 64px;
+  /* UI Properties */
+  background: #ED494C 0% 0% no-repeat padding-box;
+  border: 4px solid #000000;
+  border-radius: 0px 8px 8px 0px;
+}
+
+.game-zone {
+  width: 540px;
+  height: 540px;
+}
+
+.mark-zone {
+  width: 96px;
+  height: 96px;
+}
+
+
+.inside-border {
+  border: #ED494C solid 4px;
+}
+
+.inside-border:nth-child(1),
+.inside-border:nth-child(2),
+.inside-border:nth-child(3) {
+  border-top: none;
+}
+
+.inside-border:nth-child(1),
+.inside-border:nth-child(4),
+.inside-border:nth-child(7) {
+  border-left: none;
+}
+
+.inside-border:nth-child(3),
+.inside-border:nth-child(6),
+.inside-border:nth-child(9) {
+  border-right: none;
+}
+
+.inside-border:nth-child(7),
+.inside-border:nth-child(8),
+.inside-border:nth-child(9) {
+  border-bottom: none;
+}
+
+
+.your-turn {
+  font: normal normal bold 20px/24px Roboto Condensed;
+  letter-spacing: 0px;
+  color: #FFFFFF;
+  margin-top: 8px;
+}
+
+.restart-btn {
+  width: 540px;
+  height: 89px;
+  /* UI Properties */
+  background: #ED494C 0% 0% no-repeat padding-box;
+  border-radius: 8px;
+  margin-top: 23.5px;
+  font: normal normal bold 48px/48px Roboto Condensed;
+  letter-spacing: 0px;
+  color: #FFFFFF;
+}
+
+.win-image-x {
+  width: 540px;
+  height: 540px;
+}
+
+.win-image-x-left {
+  width: 347px;
+  height: 32px;
+  background: #ED494C;
+  transform: rotate(45deg);
+  position: absolute;
+}
+
+.win-image-x-right {
+  width: 347px;
+  height: 32px;
+  background: #ED494C;
+  transform: rotate(-45deg);
+  position: absolute;
+}
+
+.win-image-o {
+  width: 540px;
+  height: 540px;
+  position: relative;
+}
+
+.draw-box {
+  width: 540px;
+  height: 540px;
+  position: relative;
+}
+
+.draw {
+  width: 411px;
+  height: 489px;
+  /* UI Properties */
+  text-align: center;
+  font: italic normal bold 154px/154px Roboto Condensed;
+  letter-spacing: 0px;
+  color: #FF6D70;
+  text-shadow:
+    -2px -2px 0 #fff,
+    2px -2px 0 #fff,
+    -2px 2px 0 #fff,
+    2px 2px 0 #fff;
+    z-index: 100;
+  margin-top: 52px;
+}
+
+
+
+
+.winner {
+  width: 538px;
+  height: 181px;
+  /* UI Properties */
+  text-align: center;
+  font: italic normal bold 154px/154px Roboto Condensed;
+  letter-spacing: 0px;
+  color: #FF6D70;
+  z-index: 100;
+  text-shadow:
+    -2px -2px 0 #fff,
+    2px -2px 0 #fff,
+    -2px 2px 0 #fff,
+    2px 2px 0 #fff;
 }
