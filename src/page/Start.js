@@ -77,7 +77,7 @@ function Start() {
                 <div className='left-border '
                 >
                 </div>
-                <div className='right-border d-flex justify-content-center align-items-center'
+                <div className='right-border '
                 >
 
                 </div>
@@ -155,17 +155,17 @@ function Start() {
               </div>
 
             </div>
-            <div className="mid-margin col"
+            <div className="col mid-margin  d-flex justify-content-center align-items-center"
               style={{
                 aspectRatio: "1/1",
-                width: '160px',
+                // width: '160px',
                 position:"relative",
               }}
             >
               <div className='left-border '
               >
               </div>
-              <div className='right-border d-flex justify-content-center align-items-center'
+              <div className='right-border '
               >
               </div>
             </div>

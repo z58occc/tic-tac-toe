@@ -21,7 +21,6 @@
   background: #ED494C;
   transform: rotate(45deg);
   position: absolute;
-  left: calc(50% - 58px);
   top: 50%;
 }
 
@@ -33,7 +32,6 @@
   background: #ED494C;
   transform: rotate(-45deg);
   position: absolute;
-  left: calc(50% - 58px);
   top: 50%;
 }
 
@@ -43,7 +41,6 @@
   background: white;
   transform: rotate(45deg);
   position: absolute;
-  left: calc(50% - 58px);
   top: 50%;
 }
 
@@ -53,7 +50,6 @@
   background: white;
   transform: rotate(-45deg);
   position: absolute;
-  left: calc(50% - 58px);
   top: 50%;
 }
 
@@ -63,7 +59,6 @@
   background-color: black;
   transform: rotate(-45deg);
   position: absolute;
-  left: calc(50% - 55px);
   top: 52%;
 
 }
@@ -74,7 +69,6 @@
   background-color: black;
   transform: rotate(45deg);
   position: absolute;
-  left: calc(50% - 55px);
   top: 51%;
 }
 
@@ -335,6 +329,9 @@
 }
 
 @media screen and (max-width: 414px) {
+  .all{
+    height: auto;
+  }
 
   .start,
   .start-btn {
@@ -435,14 +432,14 @@
     margin: 0;
   }
 
-  .left-border,
+  /* .left-border,
   .right-border,
   .left-border-white,
   .right-border-white,
   .inside-right-border,
   .inside-left-border {
     left: 0;
-  }
+  } */
 
   .game-zone {
     height: auto;
