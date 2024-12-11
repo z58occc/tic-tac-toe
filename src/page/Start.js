@@ -3,17 +3,18 @@ import { Link } from 'react-router'
 
 function Start() {
   return (
-    <div className='bg-black vh-100 d-grid'>
-      <div className='   d-sm-flex d-block justify-content-center align-items-center'>
+    <div className='all bg-black d-grid'>
+      <div className='d-flex  justify-content-center align-items-center'
+      >
         <div className='start'
         >
           <div className="row g-0">
-            <div className="col bg-black d-flex justify-content-center ">
+            <div className="col bg-black d-flex justify-content-center align-items-center ">
               <div className='text-box d-flex justify-content-center align-items-center'>
                 TIC
               </div>
             </div>
-            <div className="col bg-black d-flex justify-content-center align-items-center"
+            <div className="mid-margin col bg-black d-flex justify-content-center align-items-center"
               style={{
                 aspectRatio: "1/1",
                 width: '100%',
@@ -21,16 +22,16 @@ function Start() {
             >
               <div className=" d-flex justify-content-center align-items-center"
                 style={{
-                  height: '80%',
-                  width: '80%',
+                  height: '75%',
+                  width: '75%',
                   backgroundColor: '#ED494C',
                   borderRadius: '100px'
                 }}
               >
                 <div
                   style={{
-                    height: '80%',
-                    width: '80%',
+                    height: '75%',
+                    width: '75%',
                     borderRadius: '100px',
                     backgroundColor: 'black'
                   }}>
@@ -40,7 +41,7 @@ function Start() {
               </div>
             </div>
             <div className="col">
-              <div className="col bg-black d-flex justify-content-center align-items-center"
+              <div className="bg-black d-flex justify-content-center align-items-center"
                 style={{
                   height: '100%',
                   width: '100%',
@@ -83,7 +84,7 @@ function Start() {
 
               </div>
             </div>
-            <div className="col bg-black d-flex justify-content-center align-items-center"
+            <div className="mid-margin col bg-black d-flex justify-content-center align-items-center"
               style={{
                 width: '100%',
               }}
@@ -100,16 +101,16 @@ function Start() {
             >
               <div className='d-flex justify-content-center align-items-center'
                 style={{
-                  height: '80%',
-                  width: '80%',
+                  height: '75%',
+                  width: '75%',
                   borderRadius: '100px',
                   border: '4px #FF6D70 solid'
                 }}
               >
                 <div
                   style={{
-                    height: '80px',
-                    width: '80px',
+                    height: '75%',
+                    width: '75%',
                     borderRadius: '100px',
                     border: '4px #FF6D70 solid'
                   }}
@@ -128,22 +129,22 @@ function Start() {
           >
             <div className="col bg-black d-flex justify-content-center align-items-center"
               style={{
-                // height: '160px',
+                aspectRatio: "1/1",
                 width: '160px'
               }}
             >
               <div className='d-flex justify-content-center align-items-center'
                 style={{
-                  height: '80%',
-                  width: '80%',
+                  height: '75%',
+                  width: '75%',
                   borderRadius: '100px',
                   border: '4px #FF6D70 solid'
                 }}
               >
                 <div
                   style={{
-                    height: '80%',
-                    width: '80%',
+                    height: '75%',
+                    width: '75%',
                     borderRadius: '100px',
                     border: '4px #FF6D70 solid'
                   }}
@@ -154,27 +155,21 @@ function Start() {
               </div>
 
             </div>
-            <div className="col">
-              <div className=" bg-black d-flex justify-content-center align-items-center"
-                style={{
-                  // height: '160px',
-                  width: '160px',
-                  position: 'relative',
-                }}
+            <div className="mid-margin col"
+              style={{
+                aspectRatio: "1/1",
+                width: '160px',
+                position:"relative",
+              }}
+            >
+              <div className='left-border '
               >
-                <div className='left-border '
-                >
-                </div>
-                <div className='right-border d-flex justify-content-center align-items-center'
-                >
-                </div>
+              </div>
+              <div className='right-border d-flex justify-content-center align-items-center'
+              >
               </div>
             </div>
             <div className="col bg-black d-flex justify-content-center align-items-center"
-              style={{
-                height: '160px',
-                width: '160px'
-              }}
             >
               <div className='text-box d-flex justify-content-center align-items-center'>
                 TOE
