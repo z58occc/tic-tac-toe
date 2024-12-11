@@ -103,54 +103,6 @@
   margin-top: 74px
 }
 
-@media screen and (max-width: 414px) {
-
-  .start,
-  .start-btn {
-    max-width: 414px;
-  }
-
-  .text-box {
-    font-size: 75px;
-  }
-}
-
-@media screen and (max-width: 375px) {
-
-  .start,
-  .start-btn {
-    max-width: 375px;
-  }
-
-  .mid-margin {
-    margin: 0;
-  }
-}
-
-@media screen and (max-width: 320px) {
-
-  .start,
-  .start-btn {
-    max-width: 320px;
-  }
-
-  .text-box {
-    font-size: 50px;
-  }
-
-  .mid-margin {
-    margin: 0;
-  }
-
-  .left-border,
-  .right-border,
-  .left-border-white,
-  .right-border-white,
-  .inside-right-border,
-  .inside-left-border {
-    left: 0;
-  }
-}
 
 
 .x-box {
@@ -213,6 +165,7 @@
   width: 96px;
   height: 96px;
 }
+
 
 
 .inside-border {
@@ -284,6 +237,22 @@
   position: absolute;
 }
 
+.draw-image-x-left {
+  width: 347px;
+  height: 32px;
+  background: #ED494C;
+  transform: rotate(45deg);
+  position: absolute;
+}
+
+.draw-image-x-right {
+  width: 347px;
+  height: 32px;
+  background: #ED494C;
+  transform: rotate(-45deg);
+  position: absolute;
+}
+
 .win-image-o {
   width: 540px;
   height: 540px;
@@ -330,4 +299,184 @@
     2px -2px 0 #fff,
     -2px 2px 0 #fff,
     2px 2px 0 #fff;
+}
+
+.row>.game-col {
+  aspect-ratio: 1/1;
+  width: 180px;
+}
+
+.back-image-o {
+  aspect-ratio: 1/1;
+  width: 405px
+}
+
+.draw-box>.draw-image-x-left,
+.draw-box>.draw-image-x-right {
+  width: 244px;
+  right: 50%;
+  height: 16px
+}
+
+.draw-image-o-outside {
+  height: 203px;
+  width: 203px;
+  background-color: #ED494C;
+  border-radius: 100%;
+  position: absolute;
+  left: 50%
+}
+
+.draw-image-o-inside {
+  height: 75%;
+  width: 75%;
+  border-radius: 100%;
+  background-color: #FF6D70
+}
+
+@media screen and (max-width: 414px) {
+
+  .start,
+  .start-btn {
+    max-width: 414px;
+  }
+
+  .text-box {
+    font-size: 75px;
+  }
+
+  .x-box,
+  .point-bar,
+  .point-box,
+  .black-box,
+  .o-box {
+    width: 30%;
+  }
+
+  .row>.game-col {
+    width: 33%;
+    aspect-ratio: 1/1;
+  }
+
+  .win-image-x {
+    width: 414px;
+    height: 540px;
+  }
+
+  .winner {
+    width: 414px;
+    font-size: 120px;
+  }
+
+}
+
+@media screen and (max-width: 375px) {
+
+  .start,
+  .start-btn {
+    max-width: 375px;
+  }
+
+  .mid-margin {
+    margin: 0;
+  }
+
+  .win-image-o,
+  .win-image-x,
+  .game-zone,
+  .drawImage {
+    width: 375px;
+    height: 500px;
+    margin-top: 0;
+  }
+
+  .back-image-o {
+    width: 375px;
+  }
+
+  .winner,
+  .draw {
+    width: 375px;
+    font-size: 100px;
+  }
+
+  .restart-btn {
+    margin-top: 0;
+  }
+
+  .draw-box>.draw-image-x-left,
+  .draw-box>.draw-image-x-right {
+    width: 200px;
+    right: 50%;
+    height: 16px
+  }
+  .draw-image-o-outside {
+    height: 180px;
+    width: 180px;
+    background-color: #ED494C;
+    border-radius: 100%;
+    position: absolute;
+    left: 50%
+  }
+}
+
+@media screen and (max-width: 320px) {
+
+  .start,
+  .start-btn {
+    max-width: 320px;
+  }
+
+  .text-box {
+    font-size: 50px;
+  }
+
+  .mid-margin {
+    margin: 0;
+  }
+
+  .left-border,
+  .right-border,
+  .left-border-white,
+  .right-border-white,
+  .inside-right-border,
+  .inside-left-border {
+    left: 0;
+  }
+
+  .game-zone {
+    height: auto;
+    margin-bottom: 160px;
+  }
+  .winner,
+  .draw,
+  .draw-box,
+  .drawImage {
+    width: 320px;
+    font-size: 80px;
+  }
+  
+  .back-image-o {
+    width: 320px;
+  }
+  .draw-box>.draw-image-x-left,
+  .draw-box>.draw-image-x-right {
+    width: 180px;
+    right: 50%;
+    height: 16px
+  }
+  .draw-image-o-outside {
+    height: 150px;
+    width: 150px;
+    background-color: #ED494C;
+    border-radius: 100%;
+    position: absolute;
+    left: 50%
+  }
+  .restart-btn{
+    margin-top: 30px;
+  }
+
+
+
 }

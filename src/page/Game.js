@@ -1,4 +1,3 @@
-import { data } from 'react-router';
 import { useEffect, useRef, useState } from 'react';
 
 function Game() {
@@ -46,13 +45,13 @@ function Game() {
       markRef.current[i].className = '';
       dataArr[i] = null;
       setTimeNum(0);
+      // localStorage.clear();
     }
     XXwinRef.current.style.display = 'none';
     OOwinRef.current.style.display = 'none';
     drawImageRef.current.style.display = 'none';
     gameZoneRef.current.style.display = 'flex';
     setUser(true);
-    // localStorage.clear();
   }
 
   useEffect(() => {
@@ -62,14 +61,15 @@ function Game() {
         OOwinRef.current.style.display = 'flex';
         gameZoneRef.current.style.display = 'none';
         drawImageRef.current.style.display = 'none';
-
         setp1point(p1point + 1);
         localStorage.setItem("p1point", p1point + 1);
+        return true;
       } else if (dataArr[a] === 'x' && dataArr[b] === 'x' && dataArr[c] === 'x') {
         XXwinRef.current.style.display = 'flex';
         gameZoneRef.current.style.display = 'none';
         setp2point(p2point + 1);
         localStorage.setItem("p2point", p2point + 1);
+        return true;
       } else {
         if (timesNum === 9) {
           drawImageRef.current.style.display = 'flex';
@@ -87,7 +87,12 @@ function Game() {
       [0, 4, 8],
       [2, 4, 6]
     ]
-    winPatterns.forEach((pattern) => checkWin(pattern))
+    for (const pattern of winPatterns) {
+      if(checkWin(pattern)){
+        return;
+      }
+    }
+    // winPatterns.forEach((pattern) => {checkWin(pattern);});
   }, [dataArr]);
 
 
@@ -103,7 +108,7 @@ function Game() {
 
 
   return (
-    <div className="vh-100"
+    <div className="vh-100 "
       style={{
         backgroundColor: '#FF6D70',
       }}
@@ -177,11 +182,10 @@ function Game() {
           <div className="row g-0  ">
             {arr.map((_, i) => {
               return (
-                <div key={i} className=" inside-border d-flex justify-content-center align-items-center"
-                  style={{
-                    width: '180px',
-                    height: '180px'
-                  }}
+                <div key={i} className="
+                game-col
+                inside-border d-flex justify-content-center align-items-center"
+
                   onClick={() => handleClick(i)}
                 >
                   <div className='mark-zone d-flex justify-content-center align-items-center'
@@ -235,10 +239,8 @@ function Game() {
       >
         <div className="win-image-o d-flex justify-content-center align-items-center">
 
-          <div className=" d-flex justify-content-center align-items-center"
+          <div className="back-image-o d-flex justify-content-center align-items-center"
             style={{
-              height: '405px',
-              width: '405px',
               backgroundColor: '#ED494C',
               borderRadius: '100%',
               position: 'absolute'
@@ -246,8 +248,8 @@ function Game() {
           >
             <div
               style={{
-                height: '330px',
-                width: '330px',
+                height: '85%',
+                width: '85%',
                 borderRadius: '100%',
                 backgroundColor: '#FF6D70'
               }}>
@@ -270,40 +272,15 @@ function Game() {
       >
         <div className="draw-box d-flex justify-content-center align-items-center">
 
-          <div className='win-image-x-left '
-            style={{
-              width: '244px',
-              right: '50%',
-              height: '16px'
-            }}
+          <div className='draw-image-x-left '
           >
           </div>
-          <div className='win-image-x-right '
-            style={{
-              width: '244px',
-              right: '50%',
-              height: '16px'
-            }}
+          <div className='draw-image-x-right '
           >
           </div>
-          <div className=" d-flex justify-content-center align-items-center"
-            style={{
-              height: '203px',
-              width: '203px',
-              backgroundColor: '#ED494C',
-              borderRadius: '100%',
-              position: 'absolute',
-              left: '50%'
-            }}
+          <div className="draw-image-o-outside d-flex justify-content-center align-items-center"
           >
-            <div
-              style={{
-                height: '150px',
-                width: '150px',
-                borderRadius: '100%',
-                backgroundColor: '#FF6D70'
-              }}>
-
+            <div className="draw-image-o-inside">
             </div>
 
           </div>
