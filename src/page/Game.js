@@ -17,45 +17,30 @@ function Game() {
   // 生出一個length:9 [1~9]的陣列 生成九宮格
 
   const handleClick = (i) => {
-    if (timesNum % 2 === 0) { // timesNum初始為0 0跟偶數是o
-      if (markRef.current[i].className === '') {// 如果點的地方還沒被點過
-        setUser(false);
-        markRef.current[i].className = 'bi bi-circle';// 打o
-        setTimeNum(timesNum + 1);
-        setDataArr((pre) => {// 在陣列中寫入
-          const newArr = [...pre];
-          newArr[i] = 'o';
-          return newArr;
-        });
-      }
-    } else if (markRef.current[i].className === '') {
-      setUser(true);
-      markRef.current[i].className = 'bi bi-x-lg text-white';// 打x
-      setTimeNum(timesNum + 1);
-      setDataArr((pre) => {
-        const newArr = [...pre];
-        newArr[i] = 'x';
+    if (markRef.current[i].className === '') {// 如果點的地方還沒被點過
+      const newMark = timesNum % 2 === 0 ? 'o' : 'x';
+      markRef.current[i].className = newMark === 'o' ? 'bi bi-circle' : 'bi bi-x-lg text-white';
+      setDataArr((prev) => {
+        const newArr = [...prev];
+        newArr[i] = newMark;
         return newArr;
       });
+      setTimeNum((prev) => prev + 1);
+      setUser((prev) => !prev);
     }
   };
-  
+
   useEffect(() => {
     const checkWin = (indices) => {// 檢查是否有玩家獲勝
       const [a, b, c] = indices; // 勝利的索引位置
       if (dataArr[a] === 'o' && dataArr[b] === 'o' && dataArr[c] === 'o') {
-        console.log(1);
-
         // 索引位置皆為o或x勝出 秀出該玩家勝利畫面
         OOwinRef.current.style.display = 'flex';
         gameZoneRef.current.style.display = 'none';
-        // drawImageRef.current.style.display = 'none';
         setp1point((prev) => {
           localStorage.setItem("p1point", prev + 1);// 存在localStorage
-          return prev +1;
+          return prev + 1;
         });
-        // setp1point(p1point + 1);// 計分
-        // localStorage.setItem("p1point", p1point + 1);// 存在localStorage
         return true; // 有玩家勝出就中止檢索
       }
       if (dataArr[a] === 'x' && dataArr[b] === 'x' && dataArr[c] === 'x') {
@@ -63,18 +48,10 @@ function Game() {
         gameZoneRef.current.style.display = 'none';
         setp2point((prev) => {
           localStorage.setItem("p2point", prev + 1);// 存在localStorage
-          return prev +1;
+          return prev + 1;
         });
-        // setp2point(p2point + 1);
-        // localStorage.setItem("p2point", p2point + 1);
         return true;
       }
-      if (timesNum === 9) {// 九格畫滿無人勝出即為平手 
-        console.log(2);
-                 
-        drawImageRef.current.style.display = 'flex';// 秀平手畫面 隱藏遊戲畫面
-        gameZoneRef.current.style.display = 'none';
-      };
       return false;
 
     };
@@ -88,7 +65,13 @@ function Game() {
       [0, 4, 8],
       [2, 4, 6]
     ];
-    winPatterns.some((pattern) => checkWin(pattern));
+    const isWinner = winPatterns.some((pattern) => checkWin(pattern));
+
+    if (!isWinner && timesNum === 9) {
+      // 把平手條件拉出checkWin函式 判斷輸贏後再判斷平手 避免同步更新 會同時出現平手跟ＯＯ勝利的畫面
+      drawImageRef.current.style.display = 'flex';
+      gameZoneRef.current.style.display = 'none';
+    }
   }, [dataArr, timesNum]);
 
   const reStart = () => {
@@ -96,7 +79,6 @@ function Game() {
       markRef.current[i].className = ''; // 清空遊戲畫面
       dataArr[i] = null; // 還原遊戲資料
       setTimeNum(0);// 還原玩家計數器
-      // localStorage.clear();
     }
     XXwinRef.current.style.display = 'none';
     OOwinRef.current.style.display = 'none';
@@ -120,7 +102,7 @@ function Game() {
 
 
   return (
-    <div className=""
+    <div 
       style={{
         backgroundColor: '#FF6D70',
       }}
@@ -198,7 +180,7 @@ function Game() {
                 style={{
                   background: 'none'
                 }}
-                key={i}
+                key={i}  // 不會變動 直接用i
                 className="
                 game-col
                 inside-border d-flex justify-content-center align-items-center"
