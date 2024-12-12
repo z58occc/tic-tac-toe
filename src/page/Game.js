@@ -39,41 +39,39 @@ function Game() {
       });
     }
   };
-  const reStart = () => {
-    for (let i = 0; i < markRef.current.length; i += 1) {
-      markRef.current[i].className = ''; // 清空遊戲畫面
-      dataArr[i] = null; // 還原遊戲資料
-      setTimeNum(0);// 還原玩家計數器
-      // localStorage.clear();
-    }
-    XXwinRef.current.style.display = 'none';
-    OOwinRef.current.style.display = 'none';
-    drawImageRef.current.style.display = 'none';
-    // 把3種遊戲結果畫面隱藏 秀出遊戲主畫面
-    gameZoneRef.current.style.display = 'flex';
-    setUser(true);
-  };
-
+  
   useEffect(() => {
     const checkWin = (indices) => {// 檢查是否有玩家獲勝
       const [a, b, c] = indices; // 勝利的索引位置
       if (dataArr[a] === 'o' && dataArr[b] === 'o' && dataArr[c] === 'o') {
+        console.log(1);
+
         // 索引位置皆為o或x勝出 秀出該玩家勝利畫面
         OOwinRef.current.style.display = 'flex';
         gameZoneRef.current.style.display = 'none';
-        drawImageRef.current.style.display = 'none';
-        setp1point(p1point + 1);// 計分
-        localStorage.setItem("p1point", p1point + 1);// 存在localStorage
+        // drawImageRef.current.style.display = 'none';
+        setp1point((prev) => {
+          localStorage.setItem("p1point", prev + 1);// 存在localStorage
+          return prev +1;
+        });
+        // setp1point(p1point + 1);// 計分
+        // localStorage.setItem("p1point", p1point + 1);// 存在localStorage
         return true; // 有玩家勝出就中止檢索
       }
       if (dataArr[a] === 'x' && dataArr[b] === 'x' && dataArr[c] === 'x') {
         XXwinRef.current.style.display = 'flex';
         gameZoneRef.current.style.display = 'none';
-        setp2point(p2point + 1);
-        localStorage.setItem("p2point", p2point + 1);
+        setp2point((prev) => {
+          localStorage.setItem("p2point", prev + 1);// 存在localStorage
+          return prev +1;
+        });
+        // setp2point(p2point + 1);
+        // localStorage.setItem("p2point", p2point + 1);
         return true;
       }
-      if (timesNum === 9) {// 九格畫滿無人勝出即為平手          
+      if (timesNum === 9) {// 九格畫滿無人勝出即為平手 
+        console.log(2);
+                 
         drawImageRef.current.style.display = 'flex';// 秀平手畫面 隱藏遊戲畫面
         gameZoneRef.current.style.display = 'none';
       };
@@ -91,12 +89,22 @@ function Game() {
       [2, 4, 6]
     ];
     winPatterns.some((pattern) => checkWin(pattern));
-    // for (const pattern of winPatterns) {
-    //   if (checkWin(pattern)) {//  有人贏 checkWin會return true 終止檢索
-    //     return;
-    //   }
-    // }
-  }, [dataArr]);
+  }, [dataArr, timesNum]);
+
+  const reStart = () => {
+    for (let i = 0; i < markRef.current.length; i += 1) {
+      markRef.current[i].className = ''; // 清空遊戲畫面
+      dataArr[i] = null; // 還原遊戲資料
+      setTimeNum(0);// 還原玩家計數器
+      // localStorage.clear();
+    }
+    XXwinRef.current.style.display = 'none';
+    OOwinRef.current.style.display = 'none';
+    drawImageRef.current.style.display = 'none';
+    // 把3種遊戲結果畫面隱藏 秀出遊戲主畫面
+    gameZoneRef.current.style.display = 'flex';
+    setUser(true);
+  };
 
 
 
@@ -187,11 +195,11 @@ function Game() {
             {arr.map((_, i) => // 生成九宮格
             (
               <button type='button'
-              style={{
-                background:'none'
-              }}
-               key={i} 
-               className="
+                style={{
+                  background: 'none'
+                }}
+                key={i}
+                className="
                 game-col
                 inside-border d-flex justify-content-center align-items-center"
                 onClick={() => handleClick(i)}
@@ -256,7 +264,7 @@ function Game() {
                 width: '85%',
                 borderRadius: '100%',
                 backgroundColor: '#FF6D70'
-              }}/>
+              }} />
           </div>
           <div className='winner'>
             WINNER!
@@ -279,7 +287,7 @@ function Game() {
           />
           <div className="draw-image-o-outside d-flex justify-content-center align-items-center"
           >
-            <div className="draw-image-o-inside"/>
+            <div className="draw-image-o-inside" />
           </div>
           <div className='draw'>
             DRAW! DRAW! DRAW!
@@ -290,10 +298,10 @@ function Game() {
 
       <div className=" d-flex justify-content-center align-items-center">
         <button type='button'
-         className='restart-btn d-flex justify-content-center align-items-center'
+          className='restart-btn d-flex justify-content-center align-items-center'
           onClick={reStart}
           style={{
-            border:'none'
+            border: 'none'
           }}
         >
           RESTART
