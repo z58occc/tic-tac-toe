@@ -19,7 +19,8 @@
   width: 90%;
   height: 12px;
   background: #ED494C;
-  transform: rotate(45deg);
+  transform: rotate(45deg); 
+  /* 長條旋轉排出X圖形 */
   position: absolute;
   top: 50%;
 }
@@ -152,7 +153,7 @@
 
 .game-zone {
   width: 540px;
-  height: 540px;
+  height: auto;
 }
 
 .mark-zone {

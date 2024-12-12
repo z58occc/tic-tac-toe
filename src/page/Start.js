@@ -3,10 +3,10 @@ import { Link } from 'react-router'
 
 function Start() {
   return (
-    <div className='all bg-black d-grid'>
-      <div className='d-flex  justify-content-center align-items-center'
+    <div className='all bg-black d-grid'>  
+      <div className='d-flex  justify-content-center align-items-center'  
       >
-        <div className='start'
+        <div className='start' // 用row-col去排九宮格
         >
           <div className="row g-0">
             <div className="col bg-black d-flex justify-content-center align-items-center ">
@@ -14,15 +14,15 @@ function Start() {
                 TIC
               </div>
             </div>
-            <div className="mid-margin col bg-black d-flex justify-content-center align-items-center"
+            <div className="col mid-margin  bg-black d-flex justify-content-center align-items-center"
               style={{
-                aspectRatio: "1/1",
+                aspectRatio: "1/1", // 長寬比設定1:1
                 width: '100%',
               }}
             >
               <div className=" d-flex justify-content-center align-items-center"
                 style={{
-                  height: '75%',
+                  height: '75%', // 用％而不是px 可以滿足rwd
                   width: '75%',
                   backgroundColor: '#ED494C',
                   borderRadius: '100px'
@@ -42,7 +42,7 @@ function Start() {
             </div>
             <div className="col">
               <div className="bg-black d-flex justify-content-center align-items-center"
-                style={{
+                style={{ // 用4個div 一左一右的長條完成Ｘ圖形 兩個外層兩個內層
                   height: '100%',
                   width: '100%',
                   position: 'relative'
@@ -84,7 +84,7 @@ function Start() {
 
               </div>
             </div>
-            <div className="mid-margin col bg-black d-flex justify-content-center align-items-center"
+            <div className="col  mid-margin bg-black d-flex justify-content-center align-items-center"
               style={{
                 width: '100%',
               }}
@@ -130,7 +130,7 @@ function Start() {
             <div className="col bg-black d-flex justify-content-center align-items-center"
               style={{
                 aspectRatio: "1/1",
-                width: '160px'
+                // width: '160px'
               }}
             >
               <div className='d-flex justify-content-center align-items-center'
@@ -158,7 +158,6 @@ function Start() {
             <div className="col mid-margin  d-flex justify-content-center align-items-center"
               style={{
                 aspectRatio: "1/1",
-                // width: '160px',
                 position:"relative",
               }}
             >
