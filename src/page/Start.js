@@ -1,10 +1,10 @@
-import '../App.css'
-import { Link } from 'react-router'
+import '../App.css';
+import { Link } from 'react-router';
 
 function Start() {
   return (
-    <div className='all bg-black d-grid'>  
-      <div className='d-flex  justify-content-center align-items-center'  
+    <div className='all bg-black d-grid'>
+      <div className='d-flex  justify-content-center align-items-center'
       >
         <div className='start' // 用row-col去排九宮格
         >
@@ -34,9 +34,7 @@ function Start() {
                     width: '75%',
                     borderRadius: '100px',
                     backgroundColor: 'black'
-                  }}>
-
-                </div>
+                  }} />
 
               </div>
             </div>
@@ -48,15 +46,11 @@ function Start() {
                   position: 'relative'
                 }}
               >
-                <div className='left-border-white d-flex justify-content-center align-items-center'>
-                </div>
+                <div className='left-border-white d-flex justify-content-center align-items-center' />
                 <div className='right-border-white d-flex justify-content-center align-items-center'
-                >
-                </div>
-                <div className="inside-right-border">
-                </div>
-                <div className="inside-left-border ">
-                </div>
+                />
+                <div className="inside-right-border" />
+                <div className="inside-left-border " />
 
               </div>
             </div>
@@ -75,13 +69,9 @@ function Start() {
                 }}
               >
                 <div className='left-border '
-                >
-                </div>
+                />
                 <div className='right-border '
-                >
-
-                </div>
-
+                />
               </div>
             </div>
             <div className="col  mid-margin bg-black d-flex justify-content-center align-items-center"
@@ -114,10 +104,7 @@ function Start() {
                     borderRadius: '100px',
                     border: '4px #FF6D70 solid'
                   }}
-                >
-
-                </div>
-
+                />
               </div>
 
             </div>
@@ -148,25 +135,20 @@ function Start() {
                     borderRadius: '100px',
                     border: '4px #FF6D70 solid'
                   }}
-                >
-
-                </div>
-
+                />
               </div>
 
             </div>
             <div className="col mid-margin  d-flex justify-content-center align-items-center"
               style={{
                 aspectRatio: "1/1",
-                position:"relative",
+                position: "relative",
               }}
             >
               <div className='left-border '
-              >
-              </div>
+              />
               <div className='right-border '
-              >
-              </div>
+              />
             </div>
             <div className="col bg-black d-flex justify-content-center align-items-center"
             >
@@ -181,11 +163,11 @@ function Start() {
       >
         <Link to='game'
         >
-          <button className='start-btn'>START</button>
+          <button type='button' className='start-btn'>START</button>
         </Link>
       </div>
     </div>
-  )
+  );
 }
 
-export default Start
+export default Start;
