@@ -62,6 +62,7 @@ function Game() {
         // 索引位置皆為o或x勝出 秀出該玩家勝利畫面
         OOwinRef.current.style.display = 'flex';
         gameZoneRef.current.style.display = 'none';
+        drawImageRef.current.style.display = 'none';
         setp1point(p1point + 1);// 計分
         localStorage.setItem("p1point", p1point + 1);// 存在localStorage
         return true; // 有玩家勝出就中止檢索
@@ -72,7 +73,7 @@ function Game() {
         localStorage.setItem("p2point", p2point + 1);
         return true;
       } else {
-        if (timesNum === 9) {// 九格畫滿無人勝出即為平手
+        if (timesNum === 9) {// 九格畫滿無人勝出即為平手          
           drawImageRef.current.style.display = 'flex';// 秀平手畫面 隱藏遊戲畫面
           gameZoneRef.current.style.display = 'none';
         };
@@ -123,7 +124,7 @@ function Game() {
         >
           <div className='x-box d-flex justify-content-center align-items-center'
             style={{
-              backgroundColor: (user ? 'black' : '#ED494C')
+              backgroundColor: (user ? 'black' : '#ED494C') // 使用者交換 輪到誰 就是#ED494C 
             }}
           >
             <i className="bi bi-x"
@@ -166,7 +167,7 @@ function Game() {
         align-items-center`}
           style={{
             width: '540px',
-            justifyContent: (user ? 'end' : 'start')
+            justifyContent: (user ? 'end' : 'start') // 切換your turn 顯示位置
           }}
         >
           YOUR TURN!
@@ -181,7 +182,7 @@ function Game() {
         <div className="game-zone p-0"
         >
           <div className="row g-0  ">
-            {arr.map((_, i) => {
+            {arr.map((_, i) => {// 生成九宮格
               return (
                 <div key={i} className="
                 game-col
@@ -192,7 +193,7 @@ function Game() {
                   <div className='mark-zone d-flex justify-content-center align-items-center'
 
                   >
-                    <i className=''
+                    <i 
                       style={{
                         fontSize: '64px'
                       }}
